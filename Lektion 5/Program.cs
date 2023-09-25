@@ -7,8 +7,8 @@ int boxer2hp = 100;
 
 while (boxer1hp > 0 && boxer2hp > 0)
 {
-    int boxer1dmg = generator.Next(50);
-    int boxer2dmg = generator.Next(50);
+    int boxer1dmg = generator.Next(30);
+    int boxer2dmg = generator.Next(30);
 
     boxer1hp = boxer1hp - boxer2dmg;
     boxer2hp = boxer2hp - boxer1dmg;
@@ -18,18 +18,23 @@ while (boxer1hp > 0 && boxer2hp > 0)
 
     Console.WriteLine("Press any button to continue!");
     Console.ReadKey();
-
-        if (boxer1hp < 1)
+       
+        if (boxer1hp < 0 || boxer1hp == 0)
         {
             Console.WriteLine("Boxer 2 has defeated Boxer 1!");
             Console.WriteLine("Boxer 2 had " + boxer2hp + "hp remaining!");
             Console.WriteLine("Press any button to quit!");
         }
 
-        if (boxer2hp < 1)
+        else if (boxer2hp < 0 || boxer2hp == 0)
         {
             Console.WriteLine("Boxer 1 has defeated Boxer 2!");
             Console.WriteLine("Boxer 1 had " + boxer1hp + "hp remaining!");
+            Console.WriteLine("Press any button to quit!");
+        }
+        else
+        {
+            Console.WriteLine("Boxer 1 and 2 have been defeated!");
             Console.WriteLine("Press any button to quit!");
         }
 
